@@ -8,7 +8,7 @@ import java.util.List;
 @RequestMapping("/ninjas")
 public class NinjaController {
 
-    private NinjaService ninjaService;
+    private NinjaService ninjaService; //Cria uma instância da Service para poder usar os métodos que estão nela
 
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;
@@ -32,9 +32,9 @@ public class NinjaController {
     }
 
     //ReadById
-    @GetMapping("/listarID")
-    public String mostrarTodosOsNinjasPorId(){
-        return "Mostrar ninjas por ID";
+    @GetMapping("/listar/{id}")
+    public NinjaModel listarNinjasPorId(@PathVariable Long id){
+        return ninjaService.listarNinjasPorId(id);
     }
 
     //Update
