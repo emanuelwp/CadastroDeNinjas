@@ -2,6 +2,7 @@ package dev.java10x.CadastroDeNinjas.Ninjas;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.io.Serial;
 import java.util.List;
 
 @RestController
@@ -21,8 +22,8 @@ public class NinjaController {
 
     //Create
     @PostMapping("/criar")
-    public String criarNinja(){
-        return "Ninja Criado";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja){
+        return ninjaService.criarNinja(ninja);
     }
 
     //ReadAll
